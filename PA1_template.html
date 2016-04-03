@@ -222,14 +222,14 @@ mostSteps &lt;- intervalSteps[which(intervalSteps$steps == max(intervalSteps$ste
 </div>
 <div id="devise-a-strategy-for-filling-in-all-of-the-missing-values-in-the-data." class="section level3">
 <h3>2. Devise a strategy for filling in all of the missing values in the data.</h3>
-<p>The best strategy is to drop the intervals with messing steps. This is because if a day has a missing value in one or more intervals then all the intervals for the day havee missing values. The following table shows that frequency of missing values poer day. There are 288 5-minute intervals in a 24 hour period.</p>
+<p>The best strategy is to drop the intervals with missing step counts. This is because if a day has a missing value in one interval then all the intervals for that day have missing values. The following table shows the frequency of missing values per day. There are 288 5-minute intervals in a 24 hour period. We see that entire days are missing.</p>
 <pre class="r"><code>table(activity[is.na(activity$steps),&quot;date&quot;])</code></pre>
 <pre><code>## 
 ## 2012-10-01 2012-10-08 2012-11-01 2012-11-04 2012-11-09 2012-11-10 
 ##        288        288        288        288        288        288 
 ## 2012-11-14 2012-11-30 
 ##        288        288</code></pre>
-<p>That said, we will replace NAs with the mean for that interval to satisfy the question.</p>
+<p>That said, we will still replace NAs with the mean for that interval to satisfy the question.</p>
 </div>
 <div id="create-a-new-dataset-that-is-equal-to-the-original-dataset-but-with-the-missing-data-filled-in." class="section level3">
 <h3>3. Create a new dataset that is equal to the original dataset but with the missing data filled in.</h3>

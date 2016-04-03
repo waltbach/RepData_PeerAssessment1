@@ -162,7 +162,7 @@ There are 2304 rows with missing values``` `r sum(is.na(activity$steps))` ```.
 
 ### 2. Devise a strategy for filling in all of the missing values in the data.
 
-The best strategy is to drop the intervals with messing steps. This is because if a day has a missing value in one or more intervals then all the intervals for the day havee missing values. The following table shows that frequency of missing values poer day. There are 288 5-minute intervals in a 24 hour period.
+The best strategy is to drop the intervals with missing step counts. This is because if a day has a missing value in one interval then all the intervals for that day have missing values. The following table shows the frequency of missing values per day. There are 288 5-minute intervals in a 24 hour period. We see that entire days are missing.
 
 
 ```r
@@ -177,7 +177,7 @@ table(activity[is.na(activity$steps),"date"])
 ##        288        288
 ```
 
-That said, we will replace NAs with the mean for that interval to satisfy the question.
+That said, we will still replace NAs with the mean for that interval to satisfy the question.
 
 ### 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
